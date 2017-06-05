@@ -14,6 +14,9 @@
 #ifndef CSIDL_APPDATA
 #define CSIDL_APPDATA 0x001a
 #endif
+#ifndef CSIDL_MYDOCUMENTS
+#define CSIDL_MYDOCUMENTS 0x0005
+#endif
 #ifndef CSIDL_LOCAL_APPDATA
 #define CSIDL_LOCAL_APPDATA 0x001c
 #endif
@@ -564,15 +567,21 @@ static HANDLE access_random_seed(int action)
 	tried_shgetfolderpath = TRUE;
     }
     if (p_SHGetFolderPathA) {
-	if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA,
-					 NULL, SHGFP_TYPE_CURRENT, seedpath))) {
+	/* if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA, */
+	/*                  NULL, SHGFP_TYPE_CURRENT, seedpath)))      */
+	if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_MYDOCUMENTS,
+					 NULL, SHGFP_TYPE_CURRENT, seedpath)))
+	{
 	    strcat(seedpath, "\\PUTTY.RND");
 	    if (try_random_seed(seedpath, action, &rethandle))
 		return rethandle;
 	}
 
-	if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_APPDATA,
-					 NULL, SHGFP_TYPE_CURRENT, seedpath))) {
+	/* if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_APPDATA,  */
+	/*                  NULL, SHGFP_TYPE_CURRENT, seedpath))) */
+	if (SUCCEEDED(p_SHGetFolderPathA(NULL, CSIDL_MYDOCUMENTS,
+					 NULL, SHGFP_TYPE_CURRENT, seedpath)))
+	{
 	    strcat(seedpath, "\\PUTTY.RND");
 	    if (try_random_seed(seedpath, action, &rethandle))
 		return rethandle;
