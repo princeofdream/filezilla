@@ -1,4 +1,4 @@
-AC_INIT([FileZilla],[3.25.2],[tim.kosse@filezilla-project.org],[],[https://filezilla-project.org/])
+AC_INIT([FileZilla],[3.26.1],[tim.kosse@filezilla-project.org],[],[https://filezilla-project.org/])
 AC_CONFIG_HEADERS([src/include/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR(config)
@@ -151,7 +151,7 @@ if test "$buildmain" = "yes"; then
 
   # Find libfilezilla
   # -----------------
-  PKG_CHECK_MODULES(LIBFILEZILLA, [libfilezilla >= 0.9.1],, [
+  PKG_CHECK_MODULES(LIBFILEZILLA, [libfilezilla >= 0.9.2],, [
 	AC_MSG_ERROR([libfilezilla not found: $LIBFILEZILLA_PKG_ERRORS. You can download it from https://lib.filezilla-project.org/])
   ])
   AC_SUBST(LIBFILEZILLA_CFLAGS)
@@ -163,7 +163,7 @@ if test "$buildmain" = "yes"; then
 
   AM_OPTIONS_WXCONFIG
 
-  MIN_WX_VERSION="3.0.2"
+  MIN_WX_VERSION="3.0.3"
   AM_PATH_WXCONFIG([$MIN_WX_VERSION], [wxWin=1], , [aui,xrc,adv,core,xml,base], [--unicode=yes --universal=no])
   if test "$wxWin" != 1; then
     AC_MSG_ERROR([
@@ -545,6 +545,13 @@ if test "$buildmain" = "yes"; then
 
   AC_SUBST(NETTLE_LIBS)
   AC_SUBST(NETTLE_CFLAGS)
+
+  PKG_CHECK_MODULES([HOGWEED], [hogweed >= 3.1],, [
+    AC_MSG_ERROR([hogweed 3.1 greater was not found. You can get it from https://www.lysator.liu.se/~nisse/nettle/])
+  ])
+
+  AC_SUBST(HOGWEED_LIBS)
+  AC_SUBST(HOGWEED_CFLAGS)
 
   # GnuTLS
   # ------

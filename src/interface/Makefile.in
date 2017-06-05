@@ -138,12 +138,13 @@ am__filezilla_SOURCES_DIST = aboutdialog.cpp asksavepassworddialog.cpp \
 	local_recursive_operation.cpp locale_initializer.cpp \
 	LocalListView.cpp LocalTreeView.cpp loginmanager.cpp \
 	Mainfrm.cpp manual_transfer.cpp menu_bar.cpp msgbox.cpp \
-	netconfwizard.cpp Options.cpp power_management.cpp queue.cpp \
-	queue_storage.cpp QueueView.cpp queueview_failed.cpp \
-	queueview_successful.cpp quickconnectbar.cpp \
-	recentserverlist.cpp recursive_operation.cpp \
-	recursive_operation_status.cpp remote_recursive_operation.cpp \
-	RemoteListView.cpp RemoteTreeView.cpp search.cpp \
+	netconfwizard.cpp Options.cpp password_crypto.cpp \
+	power_management.cpp queue.cpp queue_storage.cpp QueueView.cpp \
+	queueview_failed.cpp queueview_successful.cpp \
+	quickconnectbar.cpp recentserverlist.cpp \
+	recursive_operation.cpp recursive_operation_status.cpp \
+	remote_recursive_operation.cpp RemoteListView.cpp \
+	RemoteTreeView.cpp search.cpp serverdata.cpp \
 	settings/optionspage.cpp settings/optionspage_connection.cpp \
 	settings/optionspage_connection_active.cpp \
 	settings/optionspage_connection_ftp.cpp \
@@ -218,6 +219,7 @@ am_filezilla_OBJECTS = filezilla-aboutdialog.$(OBJEXT) \
 	filezilla-manual_transfer.$(OBJEXT) \
 	filezilla-menu_bar.$(OBJEXT) filezilla-msgbox.$(OBJEXT) \
 	filezilla-netconfwizard.$(OBJEXT) filezilla-Options.$(OBJEXT) \
+	filezilla-password_crypto.$(OBJEXT) \
 	filezilla-power_management.$(OBJEXT) filezilla-queue.$(OBJEXT) \
 	filezilla-queue_storage.$(OBJEXT) \
 	filezilla-QueueView.$(OBJEXT) \
@@ -230,6 +232,7 @@ am_filezilla_OBJECTS = filezilla-aboutdialog.$(OBJEXT) \
 	filezilla-remote_recursive_operation.$(OBJEXT) \
 	filezilla-RemoteListView.$(OBJEXT) \
 	filezilla-RemoteTreeView.$(OBJEXT) filezilla-search.$(OBJEXT) \
+	filezilla-serverdata.$(OBJEXT) \
 	settings/filezilla-optionspage.$(OBJEXT) \
 	settings/filezilla-optionspage_connection.$(OBJEXT) \
 	settings/filezilla-optionspage_connection_active.$(OBJEXT) \
@@ -390,12 +393,13 @@ am__noinst_HEADERS_DIST = aboutdialog.h asksavepassworddialog.h \
 	local_recursive_operation.h locale_initializer.h \
 	LocalListView.h LocalTreeView.h loginmanager.h Mainfrm.h \
 	manual_transfer.h menu_bar.h msgbox.h netconfwizard.h \
-	Options.h power_management.h prefix.h queue.h queue_storage.h \
-	QueueView.h queueview_failed.h queueview_successful.h \
-	quickconnectbar.h recentserverlist.h recursive_operation.h \
-	recursive_operation_status.h remote_recursive_operation.h \
-	RemoteListView.h RemoteTreeView.h search.h \
-	settings/optionspage.h settings/optionspage_connection.h \
+	Options.h password_crypto.h power_management.h prefix.h \
+	queue.h queue_storage.h QueueView.h queueview_failed.h \
+	queueview_successful.h quickconnectbar.h recentserverlist.h \
+	recursive_operation.h recursive_operation_status.h \
+	remote_recursive_operation.h RemoteListView.h RemoteTreeView.h \
+	search.h serverdata.h settings/optionspage.h \
+	settings/optionspage_connection.h \
 	settings/optionspage_connection_active.h \
 	settings/optionspage_connection_ftp.h \
 	settings/optionspage_connection_passive.h \
@@ -515,6 +519,8 @@ FILEZILLA_LINGUAS_PO = @FILEZILLA_LINGUAS_PO@
 FILEZILLA_LINGUAS_PO_NEW = @FILEZILLA_LINGUAS_PO_NEW@
 GREP = @GREP@
 HAVE_CXX14 = @HAVE_CXX14@
+HOGWEED_CFLAGS = @HOGWEED_CFLAGS@
+HOGWEED_LIBS = @HOGWEED_LIBS@
 IDN_LIB = @IDN_LIB@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -677,12 +683,13 @@ filezilla_SOURCES = aboutdialog.cpp asksavepassworddialog.cpp \
 	local_recursive_operation.cpp locale_initializer.cpp \
 	LocalListView.cpp LocalTreeView.cpp loginmanager.cpp \
 	Mainfrm.cpp manual_transfer.cpp menu_bar.cpp msgbox.cpp \
-	netconfwizard.cpp Options.cpp power_management.cpp queue.cpp \
-	queue_storage.cpp QueueView.cpp queueview_failed.cpp \
-	queueview_successful.cpp quickconnectbar.cpp \
-	recentserverlist.cpp recursive_operation.cpp \
-	recursive_operation_status.cpp remote_recursive_operation.cpp \
-	RemoteListView.cpp RemoteTreeView.cpp search.cpp \
+	netconfwizard.cpp Options.cpp password_crypto.cpp \
+	power_management.cpp queue.cpp queue_storage.cpp QueueView.cpp \
+	queueview_failed.cpp queueview_successful.cpp \
+	quickconnectbar.cpp recentserverlist.cpp \
+	recursive_operation.cpp recursive_operation_status.cpp \
+	remote_recursive_operation.cpp RemoteListView.cpp \
+	RemoteTreeView.cpp search.cpp serverdata.cpp \
 	settings/optionspage.cpp settings/optionspage_connection.cpp \
 	settings/optionspage_connection_active.cpp \
 	settings/optionspage_connection_ftp.cpp \
@@ -729,12 +736,13 @@ noinst_HEADERS = aboutdialog.h asksavepassworddialog.h \
 	local_recursive_operation.h locale_initializer.h \
 	LocalListView.h LocalTreeView.h loginmanager.h Mainfrm.h \
 	manual_transfer.h menu_bar.h msgbox.h netconfwizard.h \
-	Options.h power_management.h prefix.h queue.h queue_storage.h \
-	QueueView.h queueview_failed.h queueview_successful.h \
-	quickconnectbar.h recentserverlist.h recursive_operation.h \
-	recursive_operation_status.h remote_recursive_operation.h \
-	RemoteListView.h RemoteTreeView.h search.h \
-	settings/optionspage.h settings/optionspage_connection.h \
+	Options.h password_crypto.h power_management.h prefix.h \
+	queue.h queue_storage.h QueueView.h queueview_failed.h \
+	queueview_successful.h quickconnectbar.h recentserverlist.h \
+	recursive_operation.h recursive_operation_status.h \
+	remote_recursive_operation.h RemoteListView.h RemoteTreeView.h \
+	search.h serverdata.h settings/optionspage.h \
+	settings/optionspage_connection.h \
 	settings/optionspage_connection_active.h \
 	settings/optionspage_connection_ftp.h \
 	settings/optionspage_connection_passive.h \
@@ -772,9 +780,9 @@ filezilla_CPPFLAGS = -I$(srcdir)/../include $(LIBFILEZILLA_CFLAGS) \
 filezilla_CXXFLAGS = $(WX_CXXFLAGS_ONLY)
 filezilla_CFLAGS = $(WX_CFLAGS_ONLY)
 filezilla_LDFLAGS = ../engine/libengine.a $(LIBFILEZILLA_LIBS) \
-	$(PUGIXML_LIBS) $(NETTLE_LIBS) $(LIBGNUTLS_LIBS) \
-	$(am__append_3) $(WX_LIBS) $(RESOURCEFILE) $(IDN_LIB) \
-	$(LIBSQLITE3_LIBS) $(am__append_4) $(LIBGTK_LIBS)
+	$(PUGIXML_LIBS) $(NETTLE_LIBS) $(HOGWEED_LIBS) \
+	$(LIBGNUTLS_LIBS) $(am__append_3) $(WX_LIBS) $(RESOURCEFILE) \
+	$(IDN_LIB) $(LIBSQLITE3_LIBS) $(am__append_4) $(LIBGTK_LIBS)
 dist_noinst_DATA = interface.vcxproj
 @MACAPPBUNDLE_TRUE@noinst_DATA = $(top_builddir)/FileZilla.app/Contents/MacOS/filezilla$(EXEEXT)
 CLEANFILES = filezilla.h.gch
@@ -982,6 +990,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-msgbox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-netconfwizard.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-osx_sandbox_userdirs.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-password_crypto.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-power_management.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-power_management_osx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-prefix.Po@am__quote@
@@ -995,6 +1004,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-recursive_operation_status.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-remote_recursive_operation.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-search.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-serverdata.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-sftp_crypt_info_dlg.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-sitemanager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/filezilla-sitemanager_dialog.Po@am__quote@
@@ -1758,6 +1768,20 @@ filezilla-Options.obj: Options.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-Options.obj `if test -f 'Options.cpp'; then $(CYGPATH_W) 'Options.cpp'; else $(CYGPATH_W) '$(srcdir)/Options.cpp'; fi`
 
+filezilla-password_crypto.o: password_crypto.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT filezilla-password_crypto.o -MD -MP -MF $(DEPDIR)/filezilla-password_crypto.Tpo -c -o filezilla-password_crypto.o `test -f 'password_crypto.cpp' || echo '$(srcdir)/'`password_crypto.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/filezilla-password_crypto.Tpo $(DEPDIR)/filezilla-password_crypto.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='password_crypto.cpp' object='filezilla-password_crypto.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-password_crypto.o `test -f 'password_crypto.cpp' || echo '$(srcdir)/'`password_crypto.cpp
+
+filezilla-password_crypto.obj: password_crypto.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT filezilla-password_crypto.obj -MD -MP -MF $(DEPDIR)/filezilla-password_crypto.Tpo -c -o filezilla-password_crypto.obj `if test -f 'password_crypto.cpp'; then $(CYGPATH_W) 'password_crypto.cpp'; else $(CYGPATH_W) '$(srcdir)/password_crypto.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/filezilla-password_crypto.Tpo $(DEPDIR)/filezilla-password_crypto.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='password_crypto.cpp' object='filezilla-password_crypto.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-password_crypto.obj `if test -f 'password_crypto.cpp'; then $(CYGPATH_W) 'password_crypto.cpp'; else $(CYGPATH_W) '$(srcdir)/password_crypto.cpp'; fi`
+
 filezilla-power_management.o: power_management.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT filezilla-power_management.o -MD -MP -MF $(DEPDIR)/filezilla-power_management.Tpo -c -o filezilla-power_management.o `test -f 'power_management.cpp' || echo '$(srcdir)/'`power_management.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/filezilla-power_management.Tpo $(DEPDIR)/filezilla-power_management.Po
@@ -1953,6 +1977,20 @@ filezilla-search.obj: search.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='search.cpp' object='filezilla-search.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-search.obj `if test -f 'search.cpp'; then $(CYGPATH_W) 'search.cpp'; else $(CYGPATH_W) '$(srcdir)/search.cpp'; fi`
+
+filezilla-serverdata.o: serverdata.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT filezilla-serverdata.o -MD -MP -MF $(DEPDIR)/filezilla-serverdata.Tpo -c -o filezilla-serverdata.o `test -f 'serverdata.cpp' || echo '$(srcdir)/'`serverdata.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/filezilla-serverdata.Tpo $(DEPDIR)/filezilla-serverdata.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='serverdata.cpp' object='filezilla-serverdata.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-serverdata.o `test -f 'serverdata.cpp' || echo '$(srcdir)/'`serverdata.cpp
+
+filezilla-serverdata.obj: serverdata.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT filezilla-serverdata.obj -MD -MP -MF $(DEPDIR)/filezilla-serverdata.Tpo -c -o filezilla-serverdata.obj `if test -f 'serverdata.cpp'; then $(CYGPATH_W) 'serverdata.cpp'; else $(CYGPATH_W) '$(srcdir)/serverdata.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/filezilla-serverdata.Tpo $(DEPDIR)/filezilla-serverdata.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='serverdata.cpp' object='filezilla-serverdata.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -c -o filezilla-serverdata.obj `if test -f 'serverdata.cpp'; then $(CYGPATH_W) 'serverdata.cpp'; else $(CYGPATH_W) '$(srcdir)/serverdata.cpp'; fi`
 
 settings/filezilla-optionspage.o: settings/optionspage.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(filezilla_CPPFLAGS) $(CPPFLAGS) $(filezilla_CXXFLAGS) $(CXXFLAGS) -MT settings/filezilla-optionspage.o -MD -MP -MF settings/$(DEPDIR)/filezilla-optionspage.Tpo -c -o settings/filezilla-optionspage.o `test -f 'settings/optionspage.cpp' || echo '$(srcdir)/'`settings/optionspage.cpp

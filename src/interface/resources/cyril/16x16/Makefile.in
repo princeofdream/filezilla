@@ -195,6 +195,8 @@ FILEZILLA_LINGUAS_PO = @FILEZILLA_LINGUAS_PO@
 FILEZILLA_LINGUAS_PO_NEW = @FILEZILLA_LINGUAS_PO_NEW@
 GREP = @GREP@
 HAVE_CXX14 = @HAVE_CXX14@
+HOGWEED_CFLAGS = @HOGWEED_CFLAGS@
+HOGWEED_LIBS = @HOGWEED_LIBS@
 IDN_LIB = @IDN_LIB@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
@@ -345,7 +347,24 @@ dist_resources_DATA = \
 	downloadadd.png \
 	file.png \
 	folder.png \
-	folderback.png
+	folderback.png \
+	folderclosed.png \
+	folderup.png \
+	help.png \
+	localtreeview.png \
+	logview.png \
+	processqueue.png \
+	queueview.png \
+	reconnect.png \
+	refresh.png \
+	remotetreeview.png \
+	server.png \
+	showhidden.png \
+	sitemanager.png \
+	speedlimits.png \
+	synchronize.png \
+	upload.png \
+	uploadadd.png
 
 all: all-am
 
@@ -562,23 +581,6 @@ uninstall-am: uninstall-dist_resourcesDATA
 	mostlyclean-libtool pdf pdf-am ps ps-am tags-am uninstall \
 	uninstall-am uninstall-dist_resourcesDATA
 
-	folderclosed.png \
-	folderup.png \
-	help.png \
-	localtreeview.png \
-	logview.png \
-	processqueue.png \
-	queueview.png \
-	reconnect.png \
-	refresh.png \
-	remotetreeview.png \
-	server.png \
-	showhidden.png \
-	sitemanager.png \
-	speedlimits.png \
-	synchronize.png \
-	upload.png \
-	uploadadd.png
 
 @MACAPPBUNDLE_TRUE@mac-copy-resources: $(dist_resources_DATA)
 @MACAPPBUNDLE_TRUE@	mkdir -p $(top_builddir)/FileZilla.app/Contents/SharedSupport/resources/cyril/16x16
